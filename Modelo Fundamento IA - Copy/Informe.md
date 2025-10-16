@@ -1,11 +1,11 @@
-# 🤖 Reconocimiento de Emociones con OpenCV y DeepFace
+#  Reconocimiento de Emociones con OpenCV y DeepFace
 **Autores:** Diego Cárdenas, Jefrey Correa, Juan Dominguez y Luis de la Cruz
 **Año:** 2025  
 **Desarrollo**  
 
 ---
 
-## 📘 Introducción
+##  Introducción
 
 El reconocimiento automático de emociones humanas es un campo de estudio que combina técnicas de **visión por computadora**, **aprendizaje automático** y **procesamiento de imágenes**.  
 En este proyecto se desarrollan y comparan dos enfoques diferentes para el reconocimiento de emociones en tiempo real utilizando **OpenCV** y **DeepFace**.
@@ -20,9 +20,14 @@ Su flexibilidad y compatibilidad con múltiples lenguajes (Python, C++, Java) la
 Proporciona una interfaz simple para el reconocimiento facial, detección de emociones, estimación de edad y género.  
 A diferencia de OpenCV, DeepFace no requiere entrenamiento manual de modelos, ya que integra arquitecturas como **VGG-Face, FaceNet y OpenFace**, entrenadas sobre millones de rostros.
 
+### 🔹 ¿Qué es el Modelo LBPH?  
+**El modelo LBPH** (Local Binary Patterns Histograms) es un algoritmo de reconocimiento facial que analiza la textura de una imagen convirtiendo cada píxel en un patrón binario según la relación con sus vecinos.
+Luego genera un histograma de características que representa la identidad o expresión del rostro.
+Su principal ventaja es que es rápido, simple y robusto ante variaciones de iluminación, por lo que se usa frecuentemente en proyectos de visión por computadora con OpenCV.
+
 ---
 
-## ⚙️ Desarrollo del proyecto
+##  Desarrollo del proyecto
 
 El proyecto se estructura en cuatro fases principales:
 
@@ -35,20 +40,20 @@ Cada sección incluye el código completo y una explicación detallada línea po
 
 ---
 
-## 📸 1. Recolección de imágenes para el dataset
+##  1. Recolección de imágenes para el dataset
 
 ```python
 import cv2
 import os
 
-#emocion = 'Neutral'
+#emocion = 'Neutral' # Se define la emocion para la que se capturaran imagenes
 #emocion = 'Felicidad'
 emocion = 'Tristeza'
 
-rutaDataset = 'Deteccion de emociones por LBPH\DeteccionemocionesLBPH\Dataset' #Cambia a la ruta donde hayas almacenado el dataset
+rutaDataset = 'Deteccion de emociones por LBPH\DeteccionemocionesLBPH\Dataset' # Se especifica la ruta en la que se guardaran las imagenes para cada emocion
 rutaEmociones = rutaDataset + '/' + emocion
 
-if not os.path.exists(rutaEmociones):
+if not os.path.exists(rutaEmociones): # Si las carpetas felicidad, tristeza y neutral no existen, se crean a traves de el os.makedirs
     print('Carpeta creada: ',rutaEmociones)
     os.makedirs(rutaEmociones)
 
@@ -94,7 +99,7 @@ cap.release() # Se apaga la camara
 cv2.destroyAllWindows() # Se cierra la ventana de video
 ```
 
-### 🔍 Explicación detallada
+###  Explicación detallada
 - **Líneas 1-2:** Se importan las bibliotecas necesarias: `cv2` para visión por computadora y `os` para manejo de archivos.  
 - **Líneas 4-6:** Se define la emoción actual a capturar. Cada carpeta representa una emoción.  
 - **Líneas 8-9:** Se definen las rutas del dataset y la carpeta específica de la emoción.  
@@ -108,7 +113,7 @@ cv2.destroyAllWindows() # Se cierra la ventana de video
 
 ---
 
-## 🧠 2. Entrenamiento del modelo LBPH
+##  2. Entrenamiento del modelo LBPH
 
 ```python
 import cv2
@@ -137,7 +142,7 @@ emotion_recognizer.write(rutadeguardado) # Se guarda el modelo en la ruta defini
 print("Modelo guardado") # Se imprime un mensaje para asegurar que todo funciono correctamente
 ```
 
-### 🔍 Explicación
+###  Explicación
 - **Líneas 1-3:** Se importan las librerías requeridas (`cv2`, `os`, `numpy`).  
 - **Líneas 5-7:** Se lista el contenido del dataset, cada carpeta representa una emoción.  
 - **Líneas 8-12:** Se inicializan arreglos para etiquetas (`labels`) e imágenes (`facesData`).  
@@ -151,7 +156,7 @@ print("Modelo guardado") # Se imprime un mensaje para asegurar que todo funciono
 
 ---
 
-## 🎯 3. Reconocimiento de emociones en tiempo real (LBPH)
+##  3. Reconocimiento de emociones en tiempo real (LBPH)
 
 ```python
 import cv2
@@ -204,7 +209,7 @@ cap.release() # Se apaga la camara
 cv2.destroyAllWindows() # Se cierra la ventana de video
 ```
 
-### 🔍 Explicación
+###  Explicación
 - Carga el modelo entrenado (`Modelo.xml`).  
 - Usa `CascadeClassifier` para detectar rostros.  
 - Convierte el frame a escala de grises y recorta el rostro detectado.  
@@ -215,7 +220,7 @@ cv2.destroyAllWindows() # Se cierra la ventana de video
 
 ---
 
-## 🧠 4. Reconocimiento de emociones en tiempo real (DeepFace)
+##  4. Reconocimiento de emociones en tiempo real (DeepFace)
 
 ```python
 import cv2 # Open CV para el procesamiento de imagenes y videos
@@ -272,7 +277,7 @@ cap.release() # Se apaga la camara
 cv2.destroyAllWindows() # Se cierra la ventana de video
 ```
 
-### 🔍 Explicación
+###  Explicación
 - Se importa **DeepFace**, que utiliza modelos preentrenados para reconocer emociones.  
 - `DeepFace.analyze()` analiza el fotograma completo y devuelve la emoción dominante.  
 - `enforce_detection=False` evita errores cuando no se detectan rostros.  
@@ -281,7 +286,7 @@ cv2.destroyAllWindows() # Se cierra la ventana de video
 
 ---
 
-## 📊 Comparación entre modelos
+##  Comparación entre modelos
 
 | Característica | LBPH | DeepFace |
 |----------------|------|-----------|
@@ -294,7 +299,7 @@ cv2.destroyAllWindows() # Se cierra la ventana de video
 
 ---
 
-## 🧾 Conclusiones y recomendaciones
+##  Conclusiones y recomendaciones
 
 - **LBPH** es ideal para entornos educativos y demostrativos por su rapidez y simplicidad.  
 - **DeepFace** ofrece mayor precisión y robustez, aprovechando arquitecturas modernas.  
