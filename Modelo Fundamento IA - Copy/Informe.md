@@ -282,29 +282,13 @@ cv2.destroyAllWindows() # Se cierra la ventana de video
 - `DeepFace.analyze()` analiza el fotograma completo y devuelve la emoción dominante.  
 - `enforce_detection=False` evita errores cuando no se detectan rostros.  
 - Se dibuja un rectángulo sobre cada rostro y se muestra la emoción detectada.  
-- Finaliza al presionar la tecla `q`.
+- Finaliza al presionar la tecla `Esc`.
 
 ---
 
-##  Comparación entre modelos
 
-| Característica | LBPH | DeepFace |
-|----------------|------|-----------|
-| Enfoque | Clásico basado en histogramas | Red neuronal convolucional (CNN) |
-| Entrenamiento propio | Sí | No |
-| Velocidad | Alta (CPU) | Moderada (requiere GPU para tiempo real) |
-| Precisión | Media | Alta |
-| Dependencias | OpenCV | DeepFace, TensorFlow/PyTorch |
-| Escalabilidad | Limitada | Alta |
 
----
 
-##  Conclusiones y recomendaciones
 
-- **LBPH** es ideal para entornos educativos y demostrativos por su rapidez y simplicidad.  
-- **DeepFace** ofrece mayor precisión y robustez, aprovechando arquitecturas modernas.  
-- Se recomienda incorporar **data augmentation**, normalización de iluminación y guardar un **mapeo de etiquetas** (`label_map.json`).  
-- Este trabajo demuestra la aplicabilidad de la visión por computadora para la interpretación emocional en tiempo real.
 
----
 
