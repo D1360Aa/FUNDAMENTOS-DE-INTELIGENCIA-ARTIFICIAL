@@ -303,8 +303,3 @@ cv2.destroyAllWindows() # Se cierra la ventana de video
 
 ---
 
-## 📚 Referencias
-
-- OpenCV Documentation: [https://docs.opencv.org](https://docs.opencv.org)  
-- DeepFace Documentation: [https://github.com/serengil/deepface](https://github.com/serengil/deepface)  
-- LBPH Face Recognizer: [https://docs.opencv.org/3.4/dc/dc3/tutorial_py_matcher.html](https://docs.opencv.org/3.4/dc/dc3/tutorial_py_matcher.html)
