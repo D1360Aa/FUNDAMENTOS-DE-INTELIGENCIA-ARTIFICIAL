@@ -270,6 +270,7 @@ while True:
 
 cap.release() # Se apaga la camara
 cv2.destroyAllWindows() # Se cierra la ventana de video
+```
 
 ### 🔍 Explicación
 - Se importa **DeepFace**, que utiliza modelos preentrenados para reconocer emociones.  
