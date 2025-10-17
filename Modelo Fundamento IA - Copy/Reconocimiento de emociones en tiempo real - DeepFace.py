@@ -37,10 +37,10 @@ while True:
     for (x, y, w, h) in faces: # Se dibuja un rectangulo de color azul donde se encuentre el rostro
         cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
 
-    # Mostrar emoción solo si es válida
-    if emocion:
-        font = cv2.FONT_HERSHEY_SIMPLEX # Tipo de fuente para el texto
-        cv2.putText(frame, emocion, (x,y-25),2,1.1,(0,255,0),1,cv2.LINE_AA) # Se imprime el texto en el video
+        # Mostrar emoción solo si es válida
+        if emocion:
+            font = cv2.FONT_HERSHEY_SIMPLEX # Tipo de fuente para el texto
+            cv2.putText(frame, emocion, (x,y-25),2,1.1,(0,255,0),1,cv2.LINE_AA) # Se imprime el texto en el video
     # Mostrar el video
     cv2.imshow('Detector de emociones', frame)
     # Salir con tecla 'ESC'
@@ -49,4 +49,5 @@ while True:
         break
 
 cap.release() # Se apaga la camara
+
 cv2.destroyAllWindows() # Se cierra la ventana de video
